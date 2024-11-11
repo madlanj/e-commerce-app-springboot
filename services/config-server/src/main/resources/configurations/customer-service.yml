@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      username: adlan
+      password: adlan
+      host: localhost
+      port: 2701
+      databse: customer
+      authentication-database: admin
+
+server:
+  port: 8090
