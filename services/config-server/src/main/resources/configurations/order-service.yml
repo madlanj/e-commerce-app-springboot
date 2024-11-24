@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/order
+    username: adlan
+    password: adlan
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    databse: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    producer:
+      bootstrap-server: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: orderConfirmation:com.maj.ecommerce.kafka.OrderConfirmation #untuk informasi ke customer object apa yang dikirim
+
+server:
+  port: 8070
+
+application:
+  config:
+    customer-url: http://localhost:8222/api/v1/customers
+    payment-url: http://localhost:8222/api/v1/payments
+    product-url: http://localhost:8222/api/v1/products
+
+
